@@ -32,7 +32,7 @@ def play_on_youtube(video):
 def search_on_google(query):
     kit.search(query)
 
-# sending email
+# send email
 def send_email(receiver_address, subject, message):
     try:
         email = EmailMessage()
@@ -91,11 +91,6 @@ def get_random_joke():
     res = requests.get("https://icanhazdadjoke.com/", headers=headers).json()
     return res["joke"]
 
-
-# get an adrbitrary advice 
-def get_random_advice():
-    res = requests.get("https://api.adviceslip.com/advice").json()
-    return res['slip']['advice']
 
 
 # get covid-19 report globaly 

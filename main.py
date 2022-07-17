@@ -4,7 +4,7 @@ from functions.offline import *
 from pprint import pprint
 import speech_recognition as sr
 from random import choice
-from greeting_text import *
+from com_text import *
 
 from datetime import datetime
 
@@ -139,12 +139,14 @@ if __name__ == '__main__':
             speak(f"I'm reading out the latest news headlines")
             print(*get_latest_news(), sep='\n')
             speak(get_latest_news())
-        # ************************************
+
+        # ************************************ - incompleted
         elif "covid" in query:
             res = covid_report_global()
             print(f"the total cases is {res['TotalConfirmed']}")
             speak(f"the total cases is {res['TotalConfirmed']}")
         # ****************************************
+        
         elif 'weather' in query:
             ip_address = find_my_ip()
             city = requests.get(f"https://ipapi.co/{ip_address}/city/").text
