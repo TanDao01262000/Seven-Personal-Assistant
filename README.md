@@ -14,11 +14,15 @@
 - Get a joke
 - Report trending movies
 ---
-## Used Tools:
+## Tools:
 - Code Editor: Visual Studio Code (VS Code)
 ---
 ## Setup:
 - Environment
+  - Using ```virtualenv``` library
+  - Install: ```pip install virtualenv```
+  - Create a new environment: ```virtualenv env_name```
+  - Activate & Deactivate: ```env_name/Scripts/activate(deactivate)```
   - 
 ---
 
