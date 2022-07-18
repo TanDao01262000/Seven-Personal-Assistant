@@ -3,8 +3,9 @@
 ## Overview:
 - Building a personal assistant by Python programming languague.
 - Using APIs for multiple functions such as reporting weather or news, ects...
+- More features are comming up in the future
 ---
-##  What SEVEN able to do:
+##  What SEVEN can do:
 - Open desktop applications
 - Search on Wikipedia and Google
 - Play a video on Youtube 
@@ -39,5 +40,15 @@
 - Wikipdia:
   - Use ```wikipedia``` library
   - Install: ```pip install wikipedia```
+---
+## Use a .env file in the project
+- What?
+  - A file containing all the environment values required by your application
+- Why?
+  - Avoid messing up or polluting the global environment namespace
+  - Be able to use environment variable for local developement
+ - Use: 
+  - To use the .env file, ```python-decouple``` is needed
+  - Install ```pip install python-decouple```
 ---
 
