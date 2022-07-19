@@ -48,7 +48,7 @@
   - Avoid messing up or polluting the global environment namespace
   - Be able to use environment variable for local developement
  - Use: 
-  - To use the .env file, ```python-decouple``` is needed
-  - Install ```pip install python-decouple```
+    - To use the .env file, ```python-decouple``` is needed
+    - Install ```pip install python-decouple```
 ---
 
