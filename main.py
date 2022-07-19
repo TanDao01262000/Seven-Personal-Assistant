@@ -140,13 +140,24 @@ if __name__ == '__main__':
             print(*get_latest_news(), sep='\n')
             speak(get_latest_news())
 
-        # ************************************ - incompleted
         elif "covid" in query:
-            res = covid_report_global()
-            print(f"the total cases is {res['TotalConfirmed']}")
-            speak(f"the total cases is {res['TotalConfirmed']}")
-        # ****************************************
-        
+            res_us, res_vn = covid_report_global()
+            # the U.S. Covid-19 cases report including: case, deaths, and recovery
+            print(f"the total case is: " + res_us['TotalConfirmed'])
+            speak(f"the total case is: " + res_us['TotalConfirmed'])
+            print(f"the total deaths is: " + res_us['TotalDeaths'])
+            speak(f"the total deaths is: " + res_us['TotalDeaths'])
+            print(f"the total recovered case is" + res_us['TotalRecovered'])
+            print(f"the total recovered case is" + res_us['TotalRecovered'])
+
+            # Vietnam Covid-19 cases report
+            print(f"the total case is: " + res_vn['TotalConfirmed'])
+            speak(f"the total case is: " + res_vn['TotalConfirmed'])
+            print(f"the total deaths is: " + res_vn['TotalDeaths'])
+            speak(f"the total deaths is: " + res_vn['TotalDeaths'])
+            print(f"the total recovered case is" + res_vn['TotalRecovered'])
+            print(f"the total recovered case is" + res_vn['TotalRecovered'])
+
         elif 'weather' in query:
             ip_address = find_my_ip()
             city = requests.get(f"https://ipapi.co/{ip_address}/city/").text
@@ -157,7 +168,3 @@ if __name__ == '__main__':
             speak(
                 f"you are currently in {where}, the temperature is {temperature}, but it feels like {feels_like}")
             speak(f"the weather is {weather}")
-
-        
-        
-            

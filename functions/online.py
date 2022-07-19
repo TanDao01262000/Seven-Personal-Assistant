@@ -94,6 +94,9 @@ def get_random_joke():
 
 
 # get covid-19 report globaly 
+import json
 def covid_report_global():
     res = requests.get("https://api.covid19api.com/summary").json()
-    return res["Global"] 
+    with open('covid_report.json', 'w') as f:
+        json.dump(res, f)
+    return res["Countries"][186], res["Countries"][191]
