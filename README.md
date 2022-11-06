@@ -42,9 +42,9 @@
   - Install: ```pip install wikipedia```
 ---
 ## Use a .env file in the project
-- What?
+- What?????
   - A file containing all the environment values required by your application
-- Why?
+- Why????
   - Avoid messing up or polluting the global environment namespace
   - Be able to use environment variable for local developement
  - Use: 
