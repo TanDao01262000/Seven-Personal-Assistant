@@ -22,13 +22,11 @@ engine.setProperty('voice', voices[1].id)
 
 
 def speak(text):
-
     engine.say(text)
     engine.runAndWait()
 
 
 def greeting():
-
     hour = datetime.now().hour
     if (hour >= 6) and (hour < 12):
         speak(f"{choice(morning)} {USERNAME}")
@@ -36,17 +34,15 @@ def greeting():
         speak(f"{choice(afternoon)} {USERNAME}")
     else:
         speak(f"{choice(eveneing)} {USERNAME}")
-    speak(f"i am {BOTNAME}. what can I do for you?")
+    speak(f"{BOTNAME} here. what can I do for you?")
 
 
 def take_user_input():
-
     reg = sr.Recognizer()
     with sr.Microphone() as source:
         print('Listening....')
         reg.pause_threshold = 1
         audio = reg.listen(source)
-
     try:
         query = reg.recognize_google(audio, language='en-US')
         print(f"Your command: {query}")
@@ -76,7 +72,7 @@ if __name__ == '__main__':
         elif 'discord' in query:
             open_discord()
 
-        elif 'command prompt' in query or 'open cmd' in query:
+        elif 'command prompt' in query or 'cmd' in query:
             open_cmd()
 
         elif 'camera' in query:
@@ -143,20 +139,20 @@ if __name__ == '__main__':
         elif "covid" in query:
             res_us, res_vn = covid_report_global()
             # the U.S. Covid-19 cases report including: case, deaths, and recovery
-            print(f"the total case is: " + res_us['TotalConfirmed'])
-            speak(f"the total case is: " + res_us['TotalConfirmed'])
-            print(f"the total deaths is: " + res_us['TotalDeaths'])
-            speak(f"the total deaths is: " + res_us['TotalDeaths'])
-            print(f"the total recovered case is" + res_us['TotalRecovered'])
-            print(f"the total recovered case is" + res_us['TotalRecovered'])
+            print(f"the total case is: " + str(res_us['TotalConfirmed']))
+            speak(f"the total case is: " + str(res_us['TotalConfirmed']))
+            print(f"the total deaths is: " + str(res_us['TotalDeaths']))
+            speak(f"the total deaths is: " +str(res_us['TotalDeaths']))
+            print(f"the total recovered case is" + str(res_us['TotalRecovered']))
+            print(f"the total recovered case is" + str(res_us['TotalRecovered']))
 
             # Vietnam Covid-19 cases report
-            print(f"the total case is: " + res_vn['TotalConfirmed'])
-            speak(f"the total case is: " + res_vn['TotalConfirmed'])
-            print(f"the total deaths is: " + res_vn['TotalDeaths'])
-            speak(f"the total deaths is: " + res_vn['TotalDeaths'])
-            print(f"the total recovered case is" + res_vn['TotalRecovered'])
-            print(f"the total recovered case is" + res_vn['TotalRecovered'])
+            print(f"the total case is: " + str(res_vn['TotalConfirmed']))
+            speak(f"the total case is: " + str(res_vn['TotalConfirmed']))
+            print(f"the total deaths is: " +str(res_vn['TotalDeaths']))
+            speak(f"the total deaths is: " + str(res_vn['TotalDeaths']))
+            print(f"the total recovered case is" + str(res_vn['TotalRecovered']))
+            print(f"the total recovered case is" + str(res_vn['TotalRecovered']))
 
         elif 'weather' in query:
             ip_address = find_my_ip()

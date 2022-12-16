@@ -4,7 +4,6 @@ from email.message import EmailMessage
 import smtplib
 from decouple import config
 import pywhatkit as kit
-import webbrowser as wb
 
 NEWS_API_KEY = config("NEWS_API_KEY")
 OPENWEATHER_APP_ID = config("OPENWEATHER_APP_ID")
@@ -90,7 +89,6 @@ def get_random_joke():
     }
     res = requests.get("https://icanhazdadjoke.com/", headers=headers).json()
     return res["joke"]
-
 
 
 # get covid-19 report globaly 

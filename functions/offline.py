@@ -9,7 +9,6 @@ paths = {
 
 }
 
-
 def open_notepad():
     os.startfile(paths['notepad'])
 
