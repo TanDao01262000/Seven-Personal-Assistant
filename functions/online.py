@@ -91,10 +91,12 @@ def get_random_joke():
     return res["joke"]
 
 
-# get covid-19 report globaly 
+# get covid-19 report in the US
 import json
 def covid_report_global():
     res = requests.get("https://api.covid19api.com/summary").json()
     with open('covid_report.json', 'w') as f:
         json.dump(res, f)
-    return res["Countries"][186], res["Countries"][191]
+    for con in res["Countries"]:
+        if con['CountryCode'] == 'US':  
+            return con

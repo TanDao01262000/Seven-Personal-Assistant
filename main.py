@@ -15,7 +15,7 @@ USERNAME = config('USER')
 BOTNAME = config('BOTNAME')
 
 engine = pyttsx3.init('sapi5')
-engine.setProperty('rate', 190)
+engine.setProperty('rate', 210)
 engine.setProperty('volume', 1.0)
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
@@ -137,22 +137,18 @@ if __name__ == '__main__':
             speak(get_latest_news())
 
         elif "covid" in query:
-            res_us, res_vn = covid_report_global()
-            # the U.S. Covid-19 cases report including: case, deaths, and recovery
-            print(f"the total case is: " + str(res_us['TotalConfirmed']))
-            speak(f"the total case is: " + str(res_us['TotalConfirmed']))
-            print(f"the total deaths is: " + str(res_us['TotalDeaths']))
-            speak(f"the total deaths is: " +str(res_us['TotalDeaths']))
-            print(f"the total recovered case is" + str(res_us['TotalRecovered']))
-            print(f"the total recovered case is" + str(res_us['TotalRecovered']))
+            res_us= covid_report_global()
+            if 'America' or 'US' in query:
+                # the U.S. Covid-19 cases report including: case, deaths, and recovery
+                print(f"the total case: " + str(res_us['TotalConfirmed']))
+                speak(f"the total case is: " + str(res_us['TotalConfirmed']))
+                print(f"the total deaths: " + str(res_us['TotalDeaths']))
+                speak(f"the total deaths is: " +str(res_us['TotalDeaths']))
+                print(f"the new deaths: " + str(res_us['NewDeaths']))
+                speak(f"the new deaths is: " +str(res_us['NewDeaths']))
+                print(f"the total recovered case: " + str(res_us['TotalRecovered']))
+                speak(f"the total recovered case is" + str(res_us['TotalRecovered']))
 
-            # Vietnam Covid-19 cases report
-            print(f"the total case is: " + str(res_vn['TotalConfirmed']))
-            speak(f"the total case is: " + str(res_vn['TotalConfirmed']))
-            print(f"the total deaths is: " +str(res_vn['TotalDeaths']))
-            speak(f"the total deaths is: " + str(res_vn['TotalDeaths']))
-            print(f"the total recovered case is" + str(res_vn['TotalRecovered']))
-            print(f"the total recovered case is" + str(res_vn['TotalRecovered']))
 
         elif 'weather' in query:
             ip_address = find_my_ip()
