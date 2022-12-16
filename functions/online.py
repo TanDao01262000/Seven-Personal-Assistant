@@ -101,6 +101,20 @@ def covid_report_global():
         if con['CountryCode'] == 'US':  
             return con
 
-# english definition
-def get_eng_definition():
-    pass
+# translate english to another language
+def translate(word, from_lang, to_lang):
+    word = word.replace(" ", '%20')
+    url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
+    payload = f"q={word}&target={to_lang}&source={from_lang}"
+    headers = {
+        "content-type": "application/x-www-form-urlencoded",
+        "Accept-Encoding": "application/gzip",
+        "X-RapidAPI-Key": "8de9f6c35fmsh709ea7bfd7dc6d6p1ae600jsnd97f29e7ee2b",
+        "X-RapidAPI-Host": "google-translate1.p.rapidapi.com"
+    }
+    response = requests.request("POST", url, data=payload, headers=headers)
+    print(response.text)
+
+        
+if __name__ == "__main__":
+    translate('hello world', 'en', 'vi')
