@@ -4,6 +4,7 @@ from email.message import EmailMessage
 import smtplib
 from decouple import config
 import pywhatkit as kit
+import json
 
 NEWS_API_KEY = config("NEWS_API_KEY")
 OPENWEATHER_APP_ID = config("OPENWEATHER_APP_ID")
@@ -92,7 +93,6 @@ def get_random_joke():
 
 
 # get covid-19 report in the US
-import json
 def covid_report_global():
     res = requests.get("https://api.covid19api.com/summary").json()
     with open('covid_report.json', 'w') as f:
@@ -100,3 +100,7 @@ def covid_report_global():
     for con in res["Countries"]:
         if con['CountryCode'] == 'US':  
             return con
+
+# english definition
+def get_eng_definition():
+    pass

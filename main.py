@@ -5,9 +5,7 @@ from pprint import pprint
 import speech_recognition as sr
 from random import choice
 from com_text import *
-
 from datetime import datetime
-
 import pyttsx3
 from decouple import config
 
@@ -121,11 +119,6 @@ if __name__ == '__main__':
             pprint(joke)
             speak(joke)
 
-        elif "advice" in query:
-            speak(f"i have an advice for you")
-            advice = get_random_advice()
-            pprint(advice)
-            speak(advice)
 
         elif "trending movies" in query:
             print(*get_trending_movies(), sep='\n')
