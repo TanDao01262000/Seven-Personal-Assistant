@@ -109,7 +109,7 @@ def translate(word, from_lang, to_lang):
     headers = {
         "content-type": "application/x-www-form-urlencoded",
         "Accept-Encoding": "application/gzip",
-        "X-RapidAPI-Key": "8de9f6c35fmsh709ea7bfd7dc6d6p1ae600jsnd97f29e7ee2b",
+        "X-RapidAPI-Key": config('TRANSLATE_API'),
         "X-RapidAPI-Host": "google-translate1.p.rapidapi.com"
     }
     response = requests.request("POST", url, data=payload, headers=headers)

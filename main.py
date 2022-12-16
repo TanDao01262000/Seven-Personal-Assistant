@@ -37,15 +37,20 @@ def greeting():
     else:
         speak(f"{choice(eveneing)} {USERNAME}")
     
-    speak('Here are some action I can help you with:')
-    for i in feature_list:
-        print(i)
-        speak(i)
+    speak('First, Do you wanna know what i can help you with?')
+    ans = take_user_input()
+    if ans == 'yes':
+        speak('Here are some action I can do:')
+        for i in feature_list:
+            print(i)
+            speak(i)
+    else:
+        speak('Let me know what you want')
 
 def take_user_input():
     reg = sr.Recognizer()
     with sr.Microphone() as source:
-        print('Listening....')
+        print('I am listening to your command')
         reg.pause_threshold = 1
         audio = reg.listen(source)
     try:
@@ -178,7 +183,11 @@ if __name__ == '__main__':
             while to_lang == 'none':
                 speak('what language you want to translate to?')
                 to_lang = take_user_input().lower()
-            to_lang = lang[to_lang]
-            res = translate(str(text), 'en', str(to_lang))
-            print(res)
-            speak('The translation is on your screen now')
+            if to_lang in lang:
+                to_lang = lang[to_lang]
+                res = translate(str(text), 'en', str(to_lang))
+                print(res)
+                speak('The translation is on your screen now')
+            else:
+                speak("This language has not been supported yet, please try again")
+            
