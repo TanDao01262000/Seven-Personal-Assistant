@@ -12,7 +12,7 @@
 - Send an email
 - Report news and weather
 - Report Covid-19 global case number
-- Get a joke
+- Give a joke
 - Report trending movies
 ---
 ## Tools:
